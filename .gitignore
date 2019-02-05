@@ -1,0 +1,27 @@
+# package npm
+package-lock.json
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+out
+
+### NetBeans ###
+nbproject/private/
+build/
+nbbuild/
+dist/
+nbdist/
+.nb-gradle/
+
+### Eclipse ###
+bin/
+/bin/
+
+### Test outputs ###
+inbound/
+logs/
+test.csv
+

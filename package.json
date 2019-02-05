@@ -1,0 +1,17 @@
+{
+  "name" : "Java Core Interative Tutorial",
+  "description" : "Java Core tutorial implementing active learning techniques",
+  "version" : "Version 0.11.0",
+  "repository" : {
+    "type" : "git",
+    "url" : ""
+  },
+  "keywords" : [ "java", "core", "tutorial"],
+  "license" : "ECL-2.0",
+  "author": "Alejandro Godofredo Carlstein Ramos Mejia",
+  "email" : "info@developingdreams.net",
+  "blog" : "http://www.acarlstein.com",
+  "linkedin" : "https://www.linkedin.com/in/acarlstein/",
+  "contributors": [],
+  "bugs" : ""
+}
