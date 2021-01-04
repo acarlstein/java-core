@@ -1,6 +1,7 @@
 package concurrency;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Objects;
 import java.util.concurrent.ExecutorService;
@@ -187,6 +188,8 @@ public class CustomerAccountTest extends TestCase
 		assertEquals(startBalances.size(), 50);
 
 		List<Integer> endBalances = customerAccount.logBalances.endBalances;
+
+		Collections.sort(endBalances);
 
 		assertTrue("600 is missing?! Something is wrong. Did you synchronized the method?", endBalances.contains(600));
 

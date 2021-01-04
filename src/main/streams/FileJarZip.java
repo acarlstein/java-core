@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.nio.charset.StandardCharsets;
+import java.nio.file.AccessMode;
 import java.nio.file.FileSystem;
 import java.nio.file.FileSystems;
 import java.nio.file.Files;
@@ -31,7 +32,6 @@ public class FileJarZip
 {
 
 	public static final String READ_RESOURCE_FILENAME = "./resources/readWithNewLineAtEOF.txt";
-	public static final String WRITE_RESOURCE_FILENAME = "./resources/write.txt";
 	public static final String WRITE_RESOURCE_ZIP_FILENAME = "./resources/zipWrite.zip";
 
 	public FileJarZip(){}
@@ -71,8 +71,11 @@ public class FileJarZip
 	protected FileSystem createZip(Path path)
 	throws URISyntaxException, IOException
 	{
-		String zipPath = path.toUri().getPath();
-		URI uri = new URI("jar:file", zipPath, null);
+		String zipPath = "file://" + path.toUri().getPath();
+		String uriPath = "jar:" + zipPath;
+		//URI uri = new URI("jar:file", zipPath, null);
+		path.getFileSystem().provider().checkAccess(path.getParent().toRealPath(), AccessMode.WRITE);
+		URI uri = URI.create(uriPath);
 
 		Map<String, String> properties = new HashMap<String,String>();
 		properties.put("create", "true");
