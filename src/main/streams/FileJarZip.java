@@ -71,11 +71,8 @@ public class FileJarZip
 	protected FileSystem createZip(Path path)
 	throws URISyntaxException, IOException
 	{
-		String zipPath = "file://" + path.toUri().getPath();
-		String uriPath = "jar:" + zipPath;
-		//URI uri = new URI("jar:file", zipPath, null);
-		path.getFileSystem().provider().checkAccess(path.getParent().toRealPath(), AccessMode.WRITE);
-		URI uri = URI.create(uriPath);
+		String zipPath = path.toUri().getPath();
+		URI uri = new URI("jar:file", zipPath, null);
 
 		Map<String, String> properties = new HashMap<String,String>();
 		properties.put("create", "true");
