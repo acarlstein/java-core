@@ -49,10 +49,23 @@ public class CloneGraphTest {
     }
 
     @Test
-    public void cloneGraphWithOneEdge(){
+    public void cloneGraphNode(){
         GraphNode graphNode = new GraphNode(1);
         GraphNode graphClone = clone (graphNode);
         assertNotSame(graphNode, graphClone);
+    }
+
+    @Test
+    public void cloneGraphNodeWithOneNeighbor(){
+        GraphNode neighbor = new GraphNode(2);
+        GraphNode graphNode = new GraphNode(1);
+        graphNode.neighbords.add(neighbor);
+
+        GraphNode graphClone = clone (graphNode);
+        assertNotSame(graphNode, graphClone);
+        assertEquals(graphNode.value, graphClone.value);
+        assertNotSame(graphNode.neighbords.get(0), graphClone.neighbords.get(0));
+        assertEquals(graphNode.neighbords.get(0).value, graphClone.neighbords.get(0).value);
     }
 
     static class GraphNode  {
@@ -76,6 +89,9 @@ public class CloneGraphTest {
     static public GraphNode clone(GraphNode graphNode){
         if (graphNode == null) return null;
         GraphNode copy = new GraphNode(graphNode.value);
+        for(GraphNode neighbor : graphNode.neighbords){
+            copy.neighbords.add(clone(neighbor));
+        }
         return copy;
     }
 
