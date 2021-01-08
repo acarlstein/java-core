@@ -4,7 +4,9 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import static org.hamcrest.Matchers.instanceOf;
 import static org.junit.Assert.assertEquals;
@@ -88,12 +90,21 @@ public class CloneGraphTest {
 
     static public GraphNode clone(GraphNode graphNode){
         if (graphNode == null) return null;
+        Map<Integer, GraphNode> map = new HashMap<>();
+        return clone(graphNode, map);
+    }
+
+    // We don't want to copy a node if we already have it
+    static private GraphNode clone(GraphNode graphNode, Map<Integer, GraphNode> map){
+        if (map.containsKey(graphNode.value)){
+            return map.get(graphNode.value);
+        }
         GraphNode copy = new GraphNode(graphNode.value);
+        map.put(graphNode.value, copy);
         for(GraphNode neighbor : graphNode.neighbords){
             copy.neighbords.add(clone(neighbor));
         }
         return copy;
     }
-
 
 }
