@@ -1,2 +1,0 @@
-This is the input for the ReadWithStream class.
-01234567890ABCDEFGHIJKLMNOPQRSTUVWXYZ

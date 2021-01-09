@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
-<properties>
-<comment>Comment to display on first line of property file</comment>
-<entry key="fullname">Dario Varela</entry>
-<entry key="username">dvarela</entry>
-</properties>

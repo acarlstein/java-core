@@ -70,7 +70,7 @@ public class CloneGraphTest {
     @Test
     public void cloneGraphMultipleNeighborsTest(){
         // Breath First Search (BFS)
-        
+
         GraphNode graph = createDefaultGraph();
         GraphNode clone = clone(graph);
         assertNotSame(graph, clone);
