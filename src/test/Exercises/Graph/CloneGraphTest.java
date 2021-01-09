@@ -69,6 +69,8 @@ public class CloneGraphTest {
 
     @Test
     public void cloneGraphMultipleNeighborsTest(){
+        // Breath First Search (BFS)
+        
         GraphNode graph = createDefaultGraph();
         GraphNode clone = clone(graph);
         assertNotSame(graph, clone);
@@ -100,8 +102,6 @@ public class CloneGraphTest {
                 }
             }
         }
-
-
     }
 
     private GraphNode createDefaultGraph(){
@@ -159,7 +159,7 @@ public class CloneGraphTest {
         GraphNode copy = new GraphNode(graphNode.value);
         map.put(graphNode.value, copy);
 
-        // DFS
+        // "Deep First Search DFS"
         for(GraphNode neighbor : graphNode.neighbords){
             copy.neighbords.add(clone(neighbor, map));
         }
