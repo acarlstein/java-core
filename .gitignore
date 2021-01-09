@@ -25,4 +25,5 @@ inbound/
 resources/logs
 logs/
 test.csv
+output/
 
