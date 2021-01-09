@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.nio.charset.StandardCharsets;
+import java.nio.file.AccessMode;
 import java.nio.file.FileSystem;
 import java.nio.file.FileSystems;
 import java.nio.file.Files;
@@ -31,7 +32,6 @@ public class FileJarZip
 {
 
 	public static final String READ_RESOURCE_FILENAME = "./resources/readWithNewLineAtEOF.txt";
-	public static final String WRITE_RESOURCE_FILENAME = "./resources/write.txt";
 	public static final String WRITE_RESOURCE_ZIP_FILENAME = "./resources/zipWrite.zip";
 
 	public FileJarZip(){}

@@ -11,7 +11,9 @@ public class ThreadSleepyTimerManager
 	throws InterruptedException{
 		List<ThreadSleepyTimer> list = new ArrayList<>();
 		for (int i = 0; i < seconds; ++i){
-			list.add(new ThreadSleepyTimer(ONE_SEC).start());
+			ThreadSleepyTimer tst = new ThreadSleepyTimer(ONE_SEC);
+			tst.start();
+			list.add(tst);
 		}
 		for(Thread thread : list){
 			thread.join();

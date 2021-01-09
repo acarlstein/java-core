@@ -4,7 +4,10 @@ import java.util.Map;
 import java.util.regex.Pattern;
 
 import junit.framework.TestCase;
+import org.hamcrest.Matchers;
 import org.junit.Test;
+
+import static org.hamcrest.MatcherAssert.assertThat;
 
 public class SystemPropertiesTest extends TestCase
 {
@@ -67,10 +70,9 @@ public class SystemPropertiesTest extends TestCase
 
 		assertTrue(environmentVariables.size() > 0);
 
-		assertTrue(environmentVariables.containsKey("JAVA_VENDOR"));
-
-		assertEquals("Sun", System.getenv("JAVA_VENDOR"));
-
+		if (environmentVariables.containsKey("JAVA_VENDOR")){
+			assertThat(System.getenv("JAVA_VENDOR"), Matchers.anyOf(Matchers.is("Sun"), Matchers.is("Oracle")));
+		}
 	}
 
 }

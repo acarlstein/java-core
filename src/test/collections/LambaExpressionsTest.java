@@ -32,15 +32,16 @@ public class LambaExpressionsTest extends TestCase
 	@Test
 	public void testLambaForEach(){
 		List<SimpleCollections> list = new ArrayList<>();
+		list.add(new SimpleCollections(0));
 		list.add(new SimpleCollections(1));
 		list.add(new SimpleCollections(2));
 		list.add(new SimpleCollections(3));
 
-		list.forEach(obj -> assertTrue(obj.getIdentifier() > 0));
+		list.forEach(obj -> assertTrue(obj.getIdentifier() > -1));
 
 		AtomicInteger counter = new AtomicInteger(0);
 		list.forEach(obj -> {
-			if (obj.getIdentifier() < 1)  counter.getAndIncrement();
+			if (obj.getIdentifier() > 0) counter.getAndIncrement();
 		} );
 		assertTrue(counter.get() == 3);
 	}
