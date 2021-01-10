@@ -48,11 +48,15 @@ public class SystemPropertiesTest extends TestCase
 		// Is this regular expression correct? What is the problem with it?
 		assertTrue(Pattern.matches("\\\\|\\/", System.getProperty("file.separator")));
 
-		assertEquals("Java(TM) SE Runtime Environment", System.getProperty("java.runtime.name"));
+		String name = System.getProperty("java.runtime.name");
+		boolean actual = "Java(TM) SE Runtime Environment".contains(name)
+						|| "OpenJDK Runtime Environment".contains(name);
+		assertTrue(actual);
 
 		assertEquals("Oracle Corporation", System.getProperty("java.vm.vendor"));
 
-		assertTrue(System.getProperty("java.vm.name").contains("Java"));
+		assertTrue(System.getProperty("java.vm.name").contains("Java")
+					|| System.getProperty("java.vm.name").contains("OpenJDK"));
 
 		/**
 		 * Some escape sequences based on different operatives systems:

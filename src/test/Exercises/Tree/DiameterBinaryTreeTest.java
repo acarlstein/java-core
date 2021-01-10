@@ -79,11 +79,6 @@ public class DiameterBinaryTreeTest {
         assertEquals(getDiameter(root), 6);
     }
 
-    @Test
-    public void DiameterOfTreeThirdCase(){
-
-    }
-
     public int getDiameter(Node root){
         AtomicInteger countNodes = new AtomicInteger(0);
         getDiameter(root, countNodes);

@@ -26,10 +26,6 @@ public class ParallelMatrixRotation
 
 	public List<Integer[][]> rotateMatricesClockwise(List<Integer[][]> matrices){
 
-		int[] numbers = new int[10];
-
-		int[] newNumbers = new int[20];
-
 		Collection<Callable<Integer[][]>> tasks = new ArrayList<Callable<Integer[][]>>(matrices.size());
 
 		for(int i = 0; i < matrices.size(); ++i){

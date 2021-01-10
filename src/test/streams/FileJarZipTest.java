@@ -78,7 +78,7 @@ public class FileJarZipTest extends TestCase
 		ZipEntry entry = null;
 
 		while((entry = zip.getNextEntry()) != null){
-			String compareWithFilename = "./".concat(entry.getName());
+			String compareWithFilename = entry.getName();
 			if (filename.contains(compareWithFilename)){
 				return true;
 			}
@@ -93,7 +93,8 @@ public class FileJarZipTest extends TestCase
 		try {
 			FileJarZip fileJarZipSpy = spy(fileJarZip);
 			fileJarZipSpy.copyInsideZipWithNewName("Banana.txt");
-			assertTrue(doFileExistsInZipFile("Banana.txt"));
+			boolean doesExist = doFileExistsInZipFile("Banana.txt");
+			assertTrue(doesExist);
 		} catch (AccessDeniedException ade){
 			//"Windows is messing up")
 		} catch (Exception e){

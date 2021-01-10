@@ -22,7 +22,7 @@ bin/
 
 ### Test outputs ###
 inbound/
-resources/logs
+resources/logs/*
 logs/
 test.csv
 output/

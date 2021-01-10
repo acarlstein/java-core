@@ -106,7 +106,8 @@ public class CmdLinePropertiesTest extends TestCase
 		}
 
 		String fileContent = new String(Files.readAllBytes(path), "UTF-8");
-		assertTrue(fileContent.contains("<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"no\"?>"));
+		assertTrue(fileContent.contains("<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"no\"?>")
+					|| fileContent.contains("<?xml version=\"1.0\" encoding=\"UTF-8\"?>"));
 		assertTrue(fileContent.contains("<entry key=\"fullname\">Dario Varela</entry>"));
 		assertTrue(fileContent.contains("<entry key=\"username\">dvarela</entry>"));
 	}
