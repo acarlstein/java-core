@@ -2,8 +2,8 @@ package Exercises.Arrays;
 
 import org.junit.Test;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.ArrayList;
+import java.util.List;
 
 import static junit.framework.TestCase.*;
 
@@ -69,15 +69,19 @@ public class ReverseToMakeEqualTest {
     public boolean canBeEqual(int[] source, int[] target){
         if (source == null || target == null) return false;
         if (source.length != target.length) return false;
-        Map map = new HashMap<Integer, Boolean>();
+
+        List<Integer> numbers = new ArrayList<Integer>();
         for (Integer number : source){
-            map.put(number, true);
+            numbers.add(number);
         }
-        for(Integer number : target){
-            if (!map.containsKey(number)){
+        for (Integer number : target){
+            if (numbers.contains(number)){
+                numbers.remove(number);
+            }else{
                 return false;
             }
         }
+
         return true;
     }
 
