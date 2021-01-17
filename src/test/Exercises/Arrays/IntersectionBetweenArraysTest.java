@@ -14,12 +14,12 @@ public class IntersectionBetweenArraysTest {
     @Test
     public void findIntersectionBetweenArraysTest(){
         int[][] arr = {
-                {2, 6, 9, 11, 13, 17},
-                {3, 6, 7, 10, 13, 18},
-                {4, 5, 6, 9, 11, 13}
+                {3, 7, 10, 12, 14, 18},
+                {4, 7, 8, 11, 14, 19},
+                {5, 6, 7, 10, 12, 14}
         };
         int[] result = findIntersectionBetweenArrays(arr);
-        int[] expected = {6, 13};
+        int[] expected = {7, 14};
         assertArrayEquals(result, expected);
     }
 
