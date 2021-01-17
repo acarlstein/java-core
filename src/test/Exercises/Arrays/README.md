@@ -14,3 +14,11 @@ Array3 = {5, 6, 7, 10, 12, 14}
 
 We can see that the value `7` and `14` appear in all the arrays; 
 therefore, we should return an array that contains `{7, 14}`.
+
+### Questions that you might want to ask
+
+* Are the elements in each input array sorted?
+  * If not, can I sort these elements or do the order matters?
+* Are all input arrays the same length?
+* Can I use any data structure?
+* Does the output need to be sorted?
